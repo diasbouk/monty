@@ -21,6 +21,8 @@ void push_num(stack_t **stack, unsigned int line_number)
 int main(int argc, char **argv)
 {
 	struct stat st;
+	FILE *monty_file;
+	char line[100];
 
 
 		if (argc != 2)
@@ -31,5 +33,13 @@ int main(int argc, char **argv)
 
 		if (stat(*(argv + 1), &st) != 0)
 			fprintf(stderr, "Error: Can't open file %s", *(argv + 1));
+
+
+		monty_file = fopen(*(argv + 1), "r");
+		while (fscanf(monty_file, "%[^\n]s", line) != 0)
+			printf("%s", line);
+
+		fclose(monty_file);
+
 		return (0);
 }
