@@ -21,7 +21,6 @@ void push_num(stack_t **stack, unsigned int line_number)
 int main(int argc, char **argv)
 {
 	struct stat st;
-		(void)argv;
 
 
 		if (argc != 2)
