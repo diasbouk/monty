@@ -7,6 +7,13 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <stddef.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <sys/stat.h>
+#include <errno.h>
+#include <fcntl.h>
+
+
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -41,5 +48,6 @@ typedef struct instruction_s
 
 
 #define DELIM " \t\n"
+struct stat st;
 
 #endif

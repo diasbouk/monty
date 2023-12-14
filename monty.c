@@ -20,7 +20,9 @@ void push_num(stack_t **stack, unsigned int line_number)
 
 int main(int argc, char **argv)
 {
-	(void)argv;
+	struct stat st;
+		(void)argv;
+
 
 		if (argc != 2)
 		{
@@ -28,5 +30,7 @@ int main(int argc, char **argv)
 			exit(EXIT_FAILURE);
 		}
 
+		if (stat(*(argv + 1), &st) != 0)
+			fprintf(stderr, "Error: Can't open file %s", *(argv + 1));
 		return (0);
 }
