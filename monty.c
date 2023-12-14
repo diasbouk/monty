@@ -1,13 +1,22 @@
 #include "monty.h"
 
-
+/**
+ * push_num - puts a num into a stack
+ * @stack: stack to manip
+ * @line_number: num to push
+ */
 
 void push_num(stack_t **stack, unsigned int line_number)
 {
 	(*stack)->n = line_number;
 }
 
-
+/**
+ * main - main finction
+ * @argc: arg count
+ * @argv: programm arguments
+ * Return: 0 if success
+ */
 
 int main(int argc, char **argv)
 {
