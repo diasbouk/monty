@@ -6,10 +6,7 @@
  * @line_number: num to push
  */
 
-void push_num(stack_t **stack, unsigned int line_number)
-{
-	(*stack)->n = line_number;
-}
+
 
 /**
  * main - main finction

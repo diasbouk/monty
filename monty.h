@@ -24,12 +24,7 @@
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO
  */
-typedef struct stack_s
-{
-	int n;
-	struct stack_s *prev;
-	struct stack_s *next;
-} stack_t;
+
 
 /**
  * struct instruction_s - opcode and its function
@@ -42,7 +37,6 @@ typedef struct stack_s
 typedef struct instruction_s
 {
 	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
 	/* function pointer f , with pars stack and line_number*/
 } instruction_t;
 
