@@ -48,6 +48,5 @@ typedef struct instruction_s
 
 
 #define DELIM " \t\n"
-struct stat st;
 
 #endif
