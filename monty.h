@@ -44,7 +44,7 @@ typedef struct instruction_s
 
 
 stack_t *add_node(stack_t *head, int n);
-int handle_line(char *line);
+void handle_line(char *line, int current_line);
 
 
 #endif
