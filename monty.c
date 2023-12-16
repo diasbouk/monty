@@ -1,11 +1,9 @@
 #include "monty.h"
 
 /**
- * push_num - puts a num into a stack
- * @stack: stack to manip
- * @line_number: num to push
+ * st - struct stat to check file existence
  */
-
+struct stat st;
 
 
 /**
@@ -17,24 +15,31 @@
 
 int main(int argc, char **argv)
 {
-	struct stat st;
-	FILE *monty_file;
-	char line[100];
+
+	
+  FILE *monty_file;
+	char *line = malloc(sizeof(char) * 20);
+  
 
 
 		if (argc != 2)
 		{
-			write(STDERR_FILENO, "USAGE: monty file", 17);
+			write(STDERR_FILENO, "USAGE: monty file", 18);
 			exit(EXIT_FAILURE);
 		}
 
 		if (stat(*(argv + 1), &st) != 0)
-			fprintf(stderr, "Error: Can't open file %s", *(argv + 1));
+    {
+		      fprintf(stderr, "Error: Can't open file %s", *(argv + 1));
+          exit(EXIT_FAILURE);
+    }
 
 
 		monty_file = fopen(*(argv + 1), "r");
-		while (fscanf(monty_file, "%[^\n]s", line) != 0)
-			printf("%s", line);
+		while (fgets(line, sizeof(line), monty_file))
+		{
+          printf("%d\n", handle_line(line));
+    }
 
 		fclose(monty_file);
 

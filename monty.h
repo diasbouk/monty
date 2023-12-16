@@ -1,19 +1,14 @@
-#ifndef STACKS_QUEUES
-#define STACKS_QUEUES
+#ifndef MONTY
+#define MONTY
 
 #include <stdio.h>
-#include <string.h>
-#include <unistd.h>
-#include <ctype.h>
 #include <stdlib.h>
-#include <stddef.h>
+#include <unistd.h>
+#include <string.h>
 #include <sys/types.h>
-#include <sys/wait.h>
 #include <sys/stat.h>
-#include <errno.h>
 #include <fcntl.h>
-
-
+#include <ctype.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -24,6 +19,12 @@
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO
  */
+typedef struct stack_s
+{
+        int n;
+        struct stack_s *prev;
+        struct stack_s *next;
+} stack_t;
 
 
 /**
@@ -36,11 +37,14 @@
  */
 typedef struct instruction_s
 {
-	char *opcode;
-	/* function pointer f , with pars stack and line_number*/
+        char *opcode;
+        void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 
-#define DELIM " \t\n"
+
+stack_t *add_node(stack_t *head, int n);
+int handle_line(char *line);
+
 
 #endif
