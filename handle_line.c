@@ -19,14 +19,16 @@ void handle_line(stack_t *head, char *line, int current_line)
         if (strcmp(token, "push") == 0)
         {
                 token = strtok(NULL, DELIM);
-                if (isdigit(atoi(token)))
-                    head = add_node(head, atoi(token));
+                if (strcmp(token, "nop") == 0)
+                  continue;
+                if (isnum(token) == 1)
+                 head = add_node(&head, atoi(token));
                 else
-                    printf("L%d: usage: push integer\n", current_line);
+                    fprintf(stderr, "L%d: usage: push integer\n", current_line);
         }
 
         else if (strcmp(token , "pall") == 0)
           pall(head);
         else 
-          printf(" L%d unknown instruction %s\n", current_line, line);
+          fprintf(stderr, " L%d unknown instruction %s\n", current_line, line);
 }

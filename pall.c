@@ -7,7 +7,7 @@
 void pall(stack_t *head)
 {
   if (head == NULL)
-      printf("Empty stack");
+      fprintf(stderr, "Empty stack\n");
   while(head)
   {
     printf("%d\n", head->n);

@@ -44,10 +44,12 @@ typedef struct instruction_s
 } instruction_t;
 
 
-stack_t *add_node(stack_t *head, int n);
+stack_t *add_node(stack_t **head, const int n);
 void handle_line(stack_t *head, char *line, int current_line);
 void check_file(int ac, char **av);
 void pall(stack_t *head);
+int isnum(char *string);
+
 
 
 #endif
