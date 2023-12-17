@@ -20,7 +20,7 @@ void handle_line(stack_t *head, char *line, int current_line)
         {
                 token = strtok(NULL, DELIM);
                 if (strcmp(token, "nop") == 0)
-                  continue;
+                  return;
                 if (isnum(token) == 1)
                  head = add_node(&head, atoi(token));
                 else
