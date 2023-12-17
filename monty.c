@@ -1,10 +1,5 @@
 #include "monty.h"
 
-/**
- * st - struct stat to check file existence
- */
-struct stat st;
-
 
 /**
  * main - main finction
@@ -15,35 +10,40 @@ struct stat st;
 
 int main(int argc, char **argv)
 {
-
 	
-  FILE *monty_file;
-  int current_line = 0;
-	char *line = malloc(sizeof(char) * 20);
-  
+      FILE *monty_file;
+      int current_line = 1;
+	    char *line = malloc(sizeof(char) * 20);
+      stack_t *head = malloc(sizeof(stack_t));
 
 
-		if (argc != 2)
-		{
-			write(STDERR_FILENO, "USAGE: monty file", 17);
-			exit(EXIT_FAILURE);
-		}
-
-		if (stat(*(argv + 1), &st) != 0)
-    {
-		      fprintf(stderr, "Error: Can't open file %s", *(argv + 1));
-          exit(EXIT_FAILURE);
-    }
 
 
-		monty_file = fopen(*(argv + 1), "r");
-		while (fgets(line, sizeof(line), monty_file))
-		{
-          handle_line(line, current_line);
-          current_line++;
-    }
 
-		fclose(monty_file);
+          check_file(argc, argv);
 
-		return (0);
+
+          monty_file = fopen(*(argv + 1), "r");
+          if (fgets(line, sizeof(line), monty_file))
+          {
+              
+              if (strcmp(strtok(line, DELIM), "push") == 0)
+              {
+                  head->n = atoi(strtok(NULL, DELIM));
+		              head->next = NULL;
+                  head->prev = NULL;
+
+
+                  while (fgets(line, sizeof(line), monty_file))
+		              {
+                      handle_line(head, line, current_line);
+                      current_line++;
+                  }
+              }
+          }
+
+
+		      fclose(monty_file);
+
+		      return (0);
 }
