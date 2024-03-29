@@ -79,10 +79,6 @@ Monty byte code files can contain blank lines (empty or made of spaces only, and
 
 ## WARNING:
 
-## Authors
-yassineedev
-daisBouk
-=======
 The work is still in progress, and a lot of things 
->>>>>>> e4009dab4ce3f9c09ccb855f379b716fd0a36a92
-C
+
+#
