@@ -80,10 +80,3 @@ Monty byte code files can contain blank lines (empty or made of spaces only, and
 ## WARNING:
 
 The work is still in progress, and a lot of things like aliases and piping, redirection,... are not available.
-
-
-## Authors
-
-* [**Sertsedengle Shewandagn**](https://github.com/sertsev)
-* [**Kalkidan Demes**](https://github.com/kalkidan999)
-
