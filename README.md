@@ -76,12 +76,6 @@ Monty byte code files can contain blank lines (empty or made of spaces only, and
 	pall This is the end of our program. Monty is awesome!$
      julien@ubuntu:~/monty$
 
-
-## WARNING:
-
-The work is still in progress, and a lot of things 
-
-#
-C
-C
-C
+# Authors
+yassinedev
+diasbouk
