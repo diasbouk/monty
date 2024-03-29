@@ -1,4 +1,4 @@
-Ao
+o
 ALX - Simple Unix Like Shell
 ===========================
      C programming with ALX School!
